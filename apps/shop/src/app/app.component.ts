@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'pigs-and-flies-root',
+  selector: 'pf-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
 })
-export class AppComponent {
-  title = 'shop';
-}
+export class AppComponent {}

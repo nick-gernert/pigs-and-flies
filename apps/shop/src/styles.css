@@ -1,1 +1,20 @@
-/* You can add global styles to this file, and also import other style files */
+@import "~@fontsource/montserrat";
+@import "@fontsource/great-vibes";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Montserrat', system-ui, sans-serif;
+  }
+}
+
+.body-bg {
+  background-color: rgba(199, 210, 254, 1);
+}
+
+.great-vibes {
+  font-family: 'Great Vibes';
+}

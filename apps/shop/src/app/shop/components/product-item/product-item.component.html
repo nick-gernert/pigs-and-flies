@@ -1,0 +1,23 @@
+<pf-card>
+  <div class="bg-pink-200 hover:shadow-lg border-2 border-indigo-500 relative p-4 transition-shadow">
+    <div class="absolute top-2 left-2 text-3xl font-bold text-gray-500">
+      {{ productPrice }}
+    </div>
+    <div
+      class="flex flex-col h-full text-center cursor-pointer"
+      (click)="(navigateToDetails)"
+    >
+      <img [src]="product.image" class="my-auto" alt="{{ product.name }}" />
+      <div class="mt-auto">
+        <h4 class="text-3xl text-gray-500 font-bold my-4 great-vibes">
+          {{ product.name }}
+        </h4>
+        <pf-button
+          type="button"
+          label="Add to Cart"
+          (pfClick)="(handleAddToCart)"
+        ></pf-button>
+      </div>
+    </div>
+  </div>
+</pf-card>
