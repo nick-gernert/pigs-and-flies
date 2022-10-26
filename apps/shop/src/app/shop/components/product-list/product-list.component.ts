@@ -20,7 +20,7 @@ import { Product } from '../../../models/product';
 export class ProductListComponent {
   @ViewChild('searchInput') searchInput!: ElementRef;
 
-  @Input() products: Product[] = [];
+  @Input() products: Product[] | null = [];
 
   searchText = '';
 

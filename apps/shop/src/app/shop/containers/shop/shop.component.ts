@@ -1,26 +1,22 @@
 import { Component, OnInit, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Observable } from 'rxjs';
 
 import { ProductListComponentModule } from '../../components/product-list/product-list.component';
 import { Product } from '../../../models/product';
+import { ProductsFacade } from '../../+state/products.facade';
 
 @Component({
   templateUrl: './shop.component.html',
 })
 export class ShopComponent implements OnInit {
-  products: Product[] = [
-    {
-      id: 'tas;dlfjaksldjf',
-      description: 'lorem ipsum',
-      image: '/assets/img/butterfly.svg',
-      name: 'Beautiful Butterfly',
-      price: 100,
-    },
-  ];
+  products: Observable<Product[]> = this.productsFacade.allProducts$;
 
-  constructor() {}
+  constructor(private readonly productsFacade: ProductsFacade) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.productsFacade.init();
+  }
 }
 
 @NgModule({
