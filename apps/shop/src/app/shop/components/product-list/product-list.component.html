@@ -19,11 +19,13 @@
   <div class="my-4 md:my-auto mx-4">
     <div
       class="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-4 gap-4"
-      *ngIf="products.length > 0">
-      <pf-product-item *ngFor="let product of products;" [product]="product"></pf-product-item>
+      *ngIf="displayProducts.length > 0; else noItems">
+      <pf-product-item *ngFor="let product of displayProducts;" [product]="product"></pf-product-item>
     </div>
-    <div class="text-center my-8 text-3xl text-gray-500">
-      No products to display.
-    </div>
+    <ng-template #noItems>
+      <div class="text-center my-8 text-3xl text-gray-500">
+        No products to display.
+      </div>
+    </ng-template>
   </div>
 </div>

@@ -24,11 +24,15 @@ export class ProductListComponent {
 
   searchText = '';
 
-  // get displayProducts(): ShopProduct[] {
-  //   return this.products.filter((val) =>
-  //     val.name.toLowerCase().includes(this.searchText.toLowerCase())
-  //   );
-  // }
+  get displayProducts(): Product[] {
+    if (!this.products) {
+      return [];
+    }
+
+    return this.products.filter((val) =>
+      val.name.toLowerCase().includes(this.searchText.toLowerCase())
+    );
+  }
 
   clearSearch(): void {
     this.searchText = '';
