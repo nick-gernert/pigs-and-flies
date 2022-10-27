@@ -5,7 +5,7 @@ import {
   Input,
   NgModule,
 } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, RouterModule } from '@angular/router';
 
 import { ButtonComponentModule, CardComponentModule } from '../../../UI';
 import { Product } from '../../../models/product';
@@ -22,16 +22,8 @@ export class ProductItemComponent {
 
   addToCart!: (product: Product) => void;
 
-  get detailsLink(): string {
-    return `/details/${this.product.id}`;
-  }
-
   get productPrice(): string {
     return `$${this.product.price}`;
-  }
-
-  navigateToDetails(): void {
-    this.router.navigate([this.detailsLink]);
   }
 
   handleAddToCart(e: Event): void {
@@ -42,7 +34,12 @@ export class ProductItemComponent {
 }
 
 @NgModule({
-  imports: [ButtonComponentModule, CardComponentModule, CommonModule],
+  imports: [
+    ButtonComponentModule,
+    CardComponentModule,
+    CommonModule,
+    RouterModule,
+  ],
   declarations: [ProductItemComponent],
   exports: [ProductItemComponent],
 })
