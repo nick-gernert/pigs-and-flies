@@ -4,6 +4,7 @@ import { select, Store, Action } from '@ngrx/store';
 import * as ProductsActions from './products.actions';
 import * as ProductsFeature from './products.reducer';
 import * as ProductsSelectors from './products.selectors';
+import { Product } from '../../models/product';
 
 @Injectable()
 export class ProductsFacade {
@@ -13,7 +14,7 @@ export class ProductsFacade {
    */
   loaded$ = this.store.pipe(select(ProductsSelectors.getProductsLoaded));
   allProducts$ = this.store.pipe(select(ProductsSelectors.getAllProducts));
-  selectedProducts$ = this.store.pipe(select(ProductsSelectors.getSelected));
+  selectedProduct$ = this.store.pipe(select(ProductsSelectors.getSelected));
 
   constructor(private readonly store: Store) {}
 
@@ -23,5 +24,9 @@ export class ProductsFacade {
    */
   init() {
     this.store.dispatch(ProductsActions.initProducts());
+  }
+
+  selectProduct(id: string) {
+    this.store.dispatch(ProductsActions.selectProduct({ id }));
   }
 }

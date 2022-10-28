@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'pf-shop-footer',
   templateUrl: './shop-footer.component.html',
+  styles: [':host { display: block; }'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShopFooterComponent {}

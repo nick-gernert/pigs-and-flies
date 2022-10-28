@@ -15,6 +15,7 @@ import { Product } from '../../../models/product';
 @Component({
   selector: 'pf-product-list',
   templateUrl: './product-list.component.html',
+  styles: [':host { display: block; }'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductListComponent {

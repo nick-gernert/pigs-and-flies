@@ -8,6 +8,7 @@ import { ProductsFacade } from '../../+state/products.facade';
 
 @Component({
   templateUrl: './shop.component.html',
+  styles: [':host { display: block; }'],
 })
 export class ShopComponent implements OnInit {
   products: Observable<Product[]> = this.productsFacade.allProducts$;

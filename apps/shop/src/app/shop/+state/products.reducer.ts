@@ -38,6 +38,10 @@ const reducer = createReducer(
   on(ProductsActions.loadProductsFailure, (state, { error }) => ({
     ...state,
     error,
+  })),
+  on(ProductsActions.selectProduct, (state, { id }) => ({
+    ...state,
+    selectedId: id,
   }))
 );
 

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 @Component({
   selector: 'pf-card',
   templateUrl: './card.component.html',
+  styles: [':host { display: block; }'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardComponent {}

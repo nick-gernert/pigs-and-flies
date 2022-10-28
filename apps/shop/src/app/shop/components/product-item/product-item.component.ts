@@ -13,6 +13,7 @@ import { Product } from '../../../models/product';
 @Component({
   selector: 'pf-product-item',
   templateUrl: './product-item.component.html',
+  styles: [':host { display: block; }'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ProductItemComponent {
