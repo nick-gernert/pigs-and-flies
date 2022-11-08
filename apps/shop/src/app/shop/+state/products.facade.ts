@@ -15,6 +15,7 @@ export class ProductsFacade {
   loaded$ = this.store.pipe(select(ProductsSelectors.getProductsLoaded));
   allProducts$ = this.store.pipe(select(ProductsSelectors.getAllProducts));
   selectedProduct$ = this.store.pipe(select(ProductsSelectors.getSelected));
+  selectedId$ = this.store.pipe(select(ProductsSelectors.getSelectedId));
 
   constructor(private readonly store: Store) {}
 
@@ -28,5 +29,9 @@ export class ProductsFacade {
 
   selectProduct(id: string) {
     this.store.dispatch(ProductsActions.selectProduct({ id }));
+  }
+
+  saveProduct(product: Product): void {
+    this.store.dispatch(ProductsActions.addProduct({ product }));
   }
 }

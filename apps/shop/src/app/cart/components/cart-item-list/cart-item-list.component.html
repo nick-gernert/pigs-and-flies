@@ -1,7 +1,7 @@
 <div class="h-full flex flex-col container md:w-1/2 mx-auto">
   <div class="text-3xl mx-auto my-4">Your Cart</div>
   <div *ngIf="items; else noItems">
-    <pf-cart-card *ngFor="let item of items" [item]="item"></pf-cart-card>
+    <pf-cart-card *ngFor="let item of items; trackBy: trackByFn" [item]="item"></pf-cart-card>
   </div>
   <ng-template #noItems>
     <div class="text-center my-8" v-else>

@@ -1,0 +1,8 @@
+<pf-card class="bg-pink-200 border-2 border-indigo-500 my-2 mx-4 cursor-pointer" (click)="selectProduct()">
+  <div class="flex">
+    <img [src]="product.image" class="w-16 md:w-24" alt="{{ product.name }}" />
+    <div class="my-auto ml-8 w-full flex flex-col md:flex-row text-3xl text-gray-500">
+      <span class="great-vibes">{{ product.name }}</span>
+    </div>
+  </div>
+</pf-card>

@@ -1,0 +1,11 @@
+<div class="container mx-auto flex flex-col sm:flex-row my-auto">
+  <pf-admin-product-list
+    class="w-full"
+    [products]="products$ | async"
+    [selectedId]="selectedId$ | async"
+  ></pf-admin-product-list>
+  <pf-admin-form
+    class="w-full"
+    [product]="selectedProduct$ | async"
+  ></pf-admin-form>
+</div>

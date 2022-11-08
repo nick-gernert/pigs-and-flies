@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { createEffect, Actions, ofType } from '@ngrx/effects';
 import { fetch } from '@nrwl/angular';
-import { map } from 'rxjs';
+import { catchError, map, of, switchMap } from 'rxjs';
 
 import * as ProductsActions from './products.actions';
 import * as ProductsFeature from './products.reducer';
@@ -29,6 +29,18 @@ export class ProductsEffects {
       })
     )
   );
+
+  effectName$ = createEffect(() => {
+    return this.actions$.pipe(
+      ofType(ProductsActions.addProduct),
+      switchMap((action) =>
+        this.products.createProduct(action.product).pipe(
+          map((product) => ProductsActions.addProductSuccess({ product })),
+          catchError((error) => of(ProductsActions.addProductFail({ error })))
+        )
+      )
+    );
+  });
 
   constructor(
     private readonly actions$: Actions,

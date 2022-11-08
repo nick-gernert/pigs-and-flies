@@ -2,8 +2,6 @@ import {
   ChangeDetectionStrategy,
   Component,
   Input,
-  Output,
-  EventEmitter,
   NgModule,
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -22,12 +20,6 @@ export class ButtonComponent {
   @Input() colorClass = '';
 
   @Input() hoverClass = '';
-
-  @Output() pfClick = new EventEmitter<Event>();
-
-  handleClick(e: Event): void {
-    this.pfClick.emit(e);
-  }
 }
 
 @NgModule({

@@ -11,6 +11,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { CartModule } from './cart/cart.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [AppComponent],
@@ -19,6 +20,8 @@ import { CartModule } from './cart/cart.module';
     AppRoutingModule,
     CartModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     ShopHeaderComponentModule,
     ShopFooterComponentModule,
     StoreModule.forRoot(

@@ -27,6 +27,10 @@ export class CartItemListComponent {
       0,
     );
   }
+
+  trackByFn(index: number, item: CartItem): string {
+    return item.id;
+  }
 }
 
 @NgModule({

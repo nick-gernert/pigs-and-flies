@@ -39,6 +39,10 @@ export class ProductListComponent {
     this.searchText = '';
     this.searchInput.nativeElement.focus();
   }
+
+  trackByFn(index: number, product: Product): string {
+    return product.id;
+  }
 }
 
 @NgModule({

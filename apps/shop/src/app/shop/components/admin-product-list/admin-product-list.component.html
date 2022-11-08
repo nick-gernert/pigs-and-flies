@@ -1,0 +1,5 @@
+<div class="m-4">
+  <h3 class="text-3xl mb-8">Products</h3>
+
+  <pf-admin-product-item *ngFor="let product of products; trackBy: trackByFn" [product]="product"></pf-admin-product-item>
+</div>
