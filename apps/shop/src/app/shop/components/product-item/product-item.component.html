@@ -1,5 +1,6 @@
 <pf-card
   class="bg-pink-200 hover:shadow-lg border-2 border-indigo-500 relative transition-shadow h-full"
+  (click)="navigateToDetails()"
 >
   <div class="absolute top-2 left-2 text-3xl font-bold text-gray-500">
     {{ productPrice }}
@@ -13,22 +14,8 @@
       <pf-button
         type="button"
         label="Add to Cart"
-        (pfClick)="(handleAddToCart)"
+        (click)="handleAddToCart($event)"
       ></pf-button>
-    </div>
-  </div>
-  <div
-    class="opacity-0 h-full w-full absolute bg-slate-700/60 top-0 grid justify-center items-center hover:opacity-100 transition-opacity"
-  >
-    <div
-      class="bg-gradient-to-tr from-pink-300 via-purple-300 to-indigo-400 p-2 rounded-xl shadow-xl"
-    >
-      <a
-        class="text-3xl rounded-lg text-gray-700 bg-gray-50 p-8 flex hover:underline underline-offset-2"
-        [routerLink]="['/details', product.id]"
-      >
-        See More
-      </a>
     </div>
   </div>
 </pf-card>

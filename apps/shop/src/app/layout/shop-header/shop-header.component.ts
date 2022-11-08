@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { CartItemsFacade } from '../../cart/+state/cart-items.facade';
 
 @Component({
   selector: 'pf-shop-header',
@@ -9,9 +10,9 @@ import { CommonModule } from '@angular/common';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShopHeaderComponent {
-  totalItemsInCart = 3;
+  totalItemsInCart$ = this.cartFacade.totalItems$;
 
-  constructor() {}
+  constructor(private cartFacade: CartItemsFacade) {}
 }
 
 @NgModule({

@@ -1,28 +1,28 @@
 {
   "products": [
     {
-      "id": "1",
+      "id": "b3add5af-2586-49f9-9c65-c6897aca3cf4",
       "name": "Beautiful Butterfly",
       "price": 10,
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere veritatis necessitatibus distinctio rerum totam ad fugit voluptate eligendi. Eaque laboriosam animi sed. Ut sapiente est, corrupti alias debitis voluptate amet.",
       "image": "assets/img/butterfly.svg"
     },
     {
-      "id": "2",
+      "id": "23d99a96-e6d1-4aad-a2a5-17f48c2ecb73",
       "name": "White Guinea Pig",
       "price": 50,
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere veritatis necessitatibus distinctio rerum totam ad fugit voluptate eligendi. Eaque laboriosam animi sed. Ut sapiente est, corrupti alias debitis voluptate amet.",
       "image": "assets/img/white-with-brown.svg"
     },
     {
-      "id": "3",
+      "id": "e296ee18-9b61-47c7-8fcd-e10bc9bee0a6",
       "name": "Black Guinea Pig",
       "price": 50,
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere veritatis necessitatibus distinctio rerum totam ad fugit voluptate eligendi. Eaque laboriosam animi sed. Ut sapiente est, corrupti alias debitis voluptate amet.",
       "image": "assets/img/max.svg"
     },
     {
-      "id": "4",
+      "id": "018380c1-e219-4d80-9d56-ce7a7bcad587",
       "name": "Hairy Guinea Pig",
       "price": 999,
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. Facere veritatis necessitatibus distinctio rerum totam ad fugit voluptate eligendi. Eaque laboriosam animi sed. Ut sapiente est, corrupti alias debitis voluptate amet.",

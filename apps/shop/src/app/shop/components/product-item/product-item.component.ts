@@ -9,6 +9,7 @@ import { Router, RouterModule } from '@angular/router';
 
 import { ButtonComponentModule, CardComponentModule } from '../../../UI';
 import { Product } from '../../../models/product';
+import { CartItemsFacade } from '../../../cart/+state/cart-items.facade';
 
 @Component({
   selector: 'pf-product-item',
@@ -19,9 +20,7 @@ import { Product } from '../../../models/product';
 export class ProductItemComponent {
   @Input() product!: Product;
 
-  constructor(private router: Router) {}
-
-  addToCart!: (product: Product) => void;
+  constructor(private cartItems: CartItemsFacade, private router: Router) {}
 
   get productPrice(): string {
     return `$${this.product.price}`;
@@ -30,7 +29,11 @@ export class ProductItemComponent {
   handleAddToCart(e: Event): void {
     e.stopPropagation();
 
-    this.addToCart(this.product);
+    this.cartItems.addToCart(this.product);
+  }
+
+  navigateToDetails(): void {
+    this.router.navigate(['/details', this.product.id]);
   }
 }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, NgModule } from '@angular/core';
+import { Component, OnInit, NgModule, OnDestroy } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute } from '@angular/router';
 
@@ -10,20 +10,31 @@ import {
 import { ProductsFacade } from '../../+state/products.facade';
 
 import { Product } from '../../../models/product';
+import { CartItemsFacade } from '../../../cart/+state/cart-items.facade';
+import { Subscription } from 'rxjs';
 
 @Component({
   templateUrl: './product-details.component.html',
 })
-export class ProductDetailsComponent implements OnInit {
+export class ProductDetailsComponent implements OnInit, OnDestroy {
   product$ = this.products.selectedProduct$;
+
+  loaded$ = this.products.loaded$;
+
+  sub$!: Subscription;
 
   constructor(
     private readonly route: ActivatedRoute,
-    private readonly products: ProductsFacade
+    private readonly products: ProductsFacade,
+    private readonly cart: CartItemsFacade,
   ) {}
 
   ngOnInit(): void {
-    this.products.init();
+    this.sub$ = this.loaded$.subscribe((loaded) => {
+      if (!loaded) {
+        this.products.init();
+      }
+    })
     const productId = this.route.snapshot.paramMap.get('id');
     if (!productId) {
       return;
@@ -31,15 +42,12 @@ export class ProductDetailsComponent implements OnInit {
     this.products.selectProduct(productId);
   }
 
-  // @Prop() product!: ShopProduct;
+  ngOnDestroy(): void {
+    this.sub$.unsubscribe();
+  }
 
-  // @shop.Action
-  // addToCart!: (product: ShopProduct) => void;
-
-  handleAddToCart(e: Event): void {
-    e.stopPropagation();
-
-    // this.addToCart(this.product);
+  handleAddToCart(product: Product): void {
+    this.cart.addToCart(product);
   }
 }
 
