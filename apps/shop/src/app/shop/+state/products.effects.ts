@@ -30,7 +30,7 @@ export class ProductsEffects {
     )
   );
 
-  effectName$ = createEffect(() => {
+  createProduct$ = createEffect(() => {
     return this.actions$.pipe(
       ofType(ProductsActions.addProduct),
       switchMap((action) =>
